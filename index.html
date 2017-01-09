@@ -25,6 +25,7 @@
     padding: 10px 10px 10px 10px;
     margin: 0 auto;
     border: 2px black solid;
+    border-radius: 5px;
 
   }
   #title {
@@ -42,6 +43,7 @@
     margin: 0 auto;
     position: relative;
     border: 2px black solid;
+    border-radius: 5px;
 
   }
   #screenInput {
@@ -57,10 +59,21 @@
     background-color: #d1d1d1;
     margin: 10px 10px 10px 10px;
     float: left;
+    border-radius: 5px;
 
     /*color:white;
     font-size: 50px;
     text-align: center;*/
+  }
+  .operatorButton {
+    background-color: #4a83e0;
+  }
+  .operatorSymbols {
+    color: #e0e0e0;
+    font-size: 50px;
+    text-align: center;
+    line-height: 70px;
+    font-family: 'Lato', sans-serif;
   }
   .symbols {
     color: #414142;
@@ -281,8 +294,8 @@
       9
       </div>
     </div>
-    <div class="button" id="xbutton">
-      <div class="symbols">
+    <div class="button operatorButton" id="xbutton">
+      <div class="operatorSymbols">
       X
       </div>
     </div>
@@ -301,8 +314,8 @@
       6
       </div>
     </div>
-    <div class="button" id="-button">
-      <div class="symbols">
+    <div class="button operatorButton" id="-button">
+      <div class="operatorSymbols">
       -
       </div>
     </div>
@@ -321,8 +334,8 @@
       3
       </div>
     </div>
-    <div class="button" id="plusButton">
-      <div class="symbols">
+    <div class="button operatorButton" id="plusButton">
+      <div class="operatorSymbols">
       +
       </div>
     </div>
@@ -336,14 +349,14 @@
       .
       </div>
     </div>
-    <div class="button" id="divButton">
-      <div class="symbols">
+    <div class="button operatorButton" id="divButton">
+      <div class="operatorSymbols">
       ÷
       </div>
     </div>
 
-    <div class="button" id="equalsButton">
-      <div class="symbols">
+    <div class="button operatorButton" id="equalsButton">
+      <div class="operatorSymbols">
       =
       </div>
     </div>
