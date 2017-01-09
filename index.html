@@ -98,14 +98,15 @@
   <script>
   //Javascript and Jquery here
   $(document).ready(function(){
-    function calculate(arr){
-      arr = arr.join(" ");
-      arr = eval(arr);
-      return arr;
+    function calculate(array){
+      array = array.join(" ");
+      array = eval(array);
+      return array;
     }
     var operatorClicked = false;
     var arr = []
     var num;
+    var firstTime = true;
 
 
     $("#acbutton").on("click", function(){
@@ -115,20 +116,40 @@
     });
     $("#-button").on("click", function(){
       var input = $("#screenInput").text();
+
       arr.push(input);
+      if (arr.length>2){
+        var res = calculate(arr);
+        arr = [res];
+        console.log(arr);
+      }
       arr.push("-");
       console.log(arr.join(" "));
-
-      $("#screenInput").html("-");
+      //("#screenInput").html(calculate(res));
+      if(firstTime == true){
+        $("#screenInput").html("-");
+        firstTime = false;
+      }
+      $("#screenInput").html(res);
       operatorClicked = true;
     });
     $("#plusButton").on("click", function(){
       var input = $("#screenInput").text();
       arr.push(input);
+      if (arr.length>2){
+        var res = calculate(arr);
+        arr = [res];
+        console.log(arr);
+      }
       arr.push("+");
       console.log(arr.join(" "));
+      if(firstTime == true){
+        $("#screenInput").html("+");
+        firstTime = false;
+      }
+      $("#screenInput").html(res);
 
-      $("#screenInput").html("+");
+
       operatorClicked = true;
     });
 
@@ -145,17 +166,33 @@
     $("#xbutton").on("click", function(){
       var input = $("#screenInput").text();
       arr.push(input);
+      if (arr.length>2){
+        var res = calculate(arr);
+        arr = [res];
+        console.log(arr);
+      }
       arr.push("*");
-
-      $("#screenInput").html("x");
+      if(firstTime == true){
+        $("#screenInput").html("×");
+        firstTime = false;
+      }
+      $("#screenInput").html(res);
       operatorClicked = true;
     });
     $("#divButton").on("click", function(){
       var input = $("#screenInput").text();
       arr.push(input);
+      if (arr.length>2){
+        var res = calculate(arr);
+        arr = [res];
+        console.log(arr);
+      }
       arr.push("/");
-
-      $("#screenInput").html("÷");
+      if(firstTime == true){
+        $("#screenInput").html("÷");
+        firstTime = false;
+      }
+      $("#screenInput").html(res);
       operatorClicked = true;
     });
     $("#7button").on("click", function(){
@@ -296,7 +333,7 @@
     </div>
     <div class="button operatorButton" id="xbutton">
       <div class="operatorSymbols">
-      X
+      ×
       </div>
     </div>
     <div class="button" id="4button">
