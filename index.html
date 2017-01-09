@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato|Play|Quicksand" rel="stylesheet">
+  <script src="js.js"></script>
+  <script src="jquery-3.1.1.js"></script>
+</head>
+<body>
+  <!-- CSS -->
+  <style>
+  p {
+    color: white;
+  }
+  body {
+    padding-top: 20px;
+    background-color: #bfd2ef;
+  }
+  #bg {
+    width: 360px;
+    height: 560px;
+    background-color:#515151;
+    padding: 10px 10px 10px 10px;
+    margin: 0 auto;
+    border: 2px black solid;
+
+  }
+  #title {
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #f4f5f7;
+  }
+  #screen {
+    width: 340px;
+    height: 70px;
+    background-color: #acc1ad;
+    margin: 0 auto;
+    position: relative;
+    border: 2px black solid;
+
+  }
+  #screenInput {
+    font-size: 60px;
+    text-align: right;
+    padding-left: 20px;
+    font-family: 'Play', sans-serif;
+  }
+
+  .button {
+    height: 70px;
+    width: 70px;
+    background-color: #d1d1d1;
+    margin: 10px 10px 10px 10px;
+    float: left;
+
+    /*color:white;
+    font-size: 50px;
+    text-align: center;*/
+  }
+  .symbols {
+    color: #414142;
+    font-size: 50px;
+    text-align: center;
+    line-height: 70px;
+    font-family: 'Lato', sans-serif;
+  }
+  #acbutton {
+    background-color: #db0000;
+
+  }
+  #cancelButton {
+    background-color: #db0000;
+  }
+  .footer {
+    width: 360px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  </style>
+  <script>
+  //Javascript and Jquery here
+  $(document).ready(function(){
+    function calculate(arr){
+      arr = arr.join(" ");
+      arr = eval(arr);
+      return arr;
+    }
+    var operatorClicked = false;
+    var arr = []
+    var num;
+
+
+    $("#acbutton").on("click", function(){
+
+      $("#screenInput").html("");
+      arr = [];
+    });
+    $("#-button").on("click", function(){
+      var input = $("#screenInput").text();
+      arr.push(input);
+      arr.push("-");
+      console.log(arr.join(" "));
+
+      $("#screenInput").html("-");
+      operatorClicked = true;
+    });
+    $("#plusButton").on("click", function(){
+      var input = $("#screenInput").text();
+      arr.push(input);
+      arr.push("+");
+      console.log(arr.join(" "));
+
+      $("#screenInput").html("+");
+      operatorClicked = true;
+    });
+
+    $("#equalsButton").on("click", function(){
+      var input = $("#screenInput").text();
+      arr.push(input);
+      console.log(calculate(arr));
+      var result = calculate(arr);
+      arr = [];
+
+      $("#screenInput").html(result);
+      operatorClicked = true;
+    });
+    $("#xbutton").on("click", function(){
+      var input = $("#screenInput").text();
+      arr.push(input);
+      arr.push("*");
+
+      $("#screenInput").html("x");
+      operatorClicked = true;
+    });
+    $("#divButton").on("click", function(){
+      var input = $("#screenInput").text();
+      arr.push(input);
+      arr.push("/");
+
+      $("#screenInput").html("÷");
+      operatorClicked = true;
+    });
+    $("#7button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(7);
+    });
+    $("#8button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(8);
+    });
+    $("#9button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(9);
+    });
+    $("#4button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(4);
+    });
+    $("#5button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(5);
+    });
+    $("#6button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(6);
+    });
+    $("#1button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(1);
+    });
+    $("#2button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(2);
+    });
+    $("#3button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(3);
+    });
+    $("#0button").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(0);
+    });
+    $("#decButton").on("click", function(){
+      if (operatorClicked == true) {
+        $("#screenInput").html("");
+        operatorClicked = false;
+      }
+
+      $("#screenInput").append(".");
+    });
+    $("#cancelButton").on("click", function(){
+      var cancelInput = $("#screenInput").text();
+      $("#screenInput").html(cancelInput.slice(0, -1));
+    });
+
+
+
+  });
+  </script>
+  <div id="bg">
+    <div id=title>
+      Al's Calc
+    </div>
+    <div id="screen">
+      <div id="screenInput">
+
+      </div>
+    </div>
+    <div class="buttons">
+      <div class="button" id="acbutton">
+        <div class="symbols" style="font-size: 40px; color: #f4f5f7">
+        AC
+        </div>
+      </div>
+      <div class="button" id="cancelButton">
+        <div class="symbols" style="font-size: 40px; color: #f4f5f7">
+        C
+        </div>
+      </div>
+      <div class="button" id="blankButton" style="background-color: #515151">
+      </div>
+      <div class="button" id="blankButton" style="background-color: #515151">
+      </div>
+    <div class="button" id="7button">
+      <div class="symbols">
+      7
+      </div>
+    </div>
+    <div class="button" id="8button">
+      <div class="symbols">
+      8
+      </div>
+    </div>
+    <div class="button" id="9button">
+      <div class="symbols">
+      9
+      </div>
+    </div>
+    <div class="button" id="xbutton">
+      <div class="symbols">
+      X
+      </div>
+    </div>
+    <div class="button" id="4button">
+      <div class="symbols">
+      4
+      </div>
+    </div>
+    <div class="button" id="5button">
+      <div class="symbols">
+      5
+      </div>
+    </div>
+    <div class="button" id="6button">
+      <div class="symbols">
+      6
+      </div>
+    </div>
+    <div class="button" id="-button">
+      <div class="symbols">
+      -
+      </div>
+    </div>
+    <div class="button" id="1button">
+      <div class="symbols">
+      1
+      </div>
+    </div>
+    <div class="button" id="2button">
+      <div class="symbols">
+      2
+      </div>
+    </div>
+    <div class="button" id="3button">
+      <div class="symbols">
+      3
+      </div>
+    </div>
+    <div class="button" id="plusButton">
+      <div class="symbols">
+      +
+      </div>
+    </div>
+    <div class="button" id="0button">
+      <div class="symbols">
+      0
+      </div>
+    </div>
+    <div class="button" id="decButton">
+      <div class="symbols">
+      .
+      </div>
+    </div>
+    <div class="button" id="divButton">
+      <div class="symbols">
+      ÷
+      </div>
+    </div>
+
+    <div class="button" id="equalsButton">
+      <div class="symbols">
+      =
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+  <hr>
+  Coded by <a href="https://github.com/cazwazacz/" target="_blank">Allan Wazacz</a>.
+</div>
+</body>
+</html>
