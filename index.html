@@ -25,7 +25,7 @@
     padding: 10px 10px 10px 10px;
     margin: 0 auto;
     border: 2px black solid;
-    border-radius: 5px;
+    border-radius: 10px;
 
   }
   #title {
@@ -68,18 +68,21 @@
   .operatorButton {
     background-color: #4a83e0;
   }
+  /*Removes blue outline from buttons*/
+  button:focus {outline:0;}
+
   .operatorSymbols {
     color: #e0e0e0;
     font-size: 50px;
     text-align: center;
-    line-height: 70px;
+    line-height: 55px;
     font-family: 'Lato', sans-serif;
   }
   .symbols {
     color: #414142;
     font-size: 50px;
     text-align: center;
-    line-height: 70px;
+    line-height:55px;
     font-family: 'Lato', sans-serif;
   }
   #acbutton {
@@ -116,15 +119,15 @@
     });
     $("#-button").on("click", function(){
       var input = $("#screenInput").text();
-
+      console.log(input.length);
       arr.push(input);
       if (arr.length>2){
         var res = calculate(arr);
         arr = [res];
-        console.log(arr);
+
       }
       arr.push("-");
-      console.log(arr.join(" "));
+
       //("#screenInput").html(calculate(res));
       if(firstTime == true){
         $("#screenInput").html("-");
@@ -139,10 +142,10 @@
       if (arr.length>2){
         var res = calculate(arr);
         arr = [res];
-        console.log(arr);
+
       }
       arr.push("+");
-      console.log(arr.join(" "));
+
       if(firstTime == true){
         $("#screenInput").html("+");
         firstTime = false;
@@ -156,7 +159,7 @@
     $("#equalsButton").on("click", function(){
       var input = $("#screenInput").text();
       arr.push(input);
-      console.log(calculate(arr));
+
       var result = calculate(arr);
       arr = [];
 
@@ -169,7 +172,7 @@
       if (arr.length>2){
         var res = calculate(arr);
         arr = [res];
-        console.log(arr);
+
       }
       arr.push("*");
       if(firstTime == true){
@@ -185,7 +188,7 @@
       if (arr.length>2){
         var res = calculate(arr);
         arr = [res];
-        console.log(arr);
+
       }
       arr.push("/");
       if(firstTime == true){
@@ -302,101 +305,101 @@
       </div>
     </div>
     <div class="buttons">
-      <div class="button" id="acbutton">
-        <div class="symbols" style="font-size: 40px; color: #f4f5f7">
-        AC
-        </div>
+    <button class="button" id="acbutton">
+      <div class="symbols" style="font-size: 40px; color: #f4f5f7">
+      AC
       </div>
-      <div class="button" id="cancelButton">
-        <div class="symbols" style="font-size: 40px; color: #f4f5f7">
-        C
-        </div>
+    </button>
+    <button class="button" id="cancelButton">
+      <div class="symbols" style="font-size: 40px; color: #f4f5f7">
+      C
       </div>
-      <div class="button" id="blankButton" style="background-color: #515151">
-      </div>
-      <div class="button" id="blankButton" style="background-color: #515151">
-      </div>
-    <div class="button" id="7button">
-      <div class="symbols">
-      7
-      </div>
+    </button>
+    <div class="button" id="blankButton" style="background-color: #515151">
     </div>
-    <div class="button" id="8button">
-      <div class="symbols">
-      8
-      </div>
+    <div class="button" id="blankButton" style="background-color: #515151">
     </div>
-    <div class="button" id="9button">
-      <div class="symbols">
-      9
-      </div>
+  <button class="button" id="7button">
+    <div class="symbols">
+    7
     </div>
-    <div class="button operatorButton" id="xbutton">
-      <div class="operatorSymbols">
-      ×
-      </div>
+  </button>
+  <button class="button" id="8button">
+    <div class="symbols">
+    8
     </div>
-    <div class="button" id="4button">
-      <div class="symbols">
-      4
-      </div>
+  </button>
+  <button class="button" id="9button">
+    <div class="symbols">
+    9
     </div>
-    <div class="button" id="5button">
-      <div class="symbols">
-      5
-      </div>
+  </button>
+  <button class="button operatorButton" id="xbutton">
+    <div class="operatorSymbols">
+    ×
     </div>
-    <div class="button" id="6button">
-      <div class="symbols">
-      6
-      </div>
+  </button>
+  <button class="button" id="4button">
+    <div class="symbols">
+    4
     </div>
-    <div class="button operatorButton" id="-button">
-      <div class="operatorSymbols">
-      -
-      </div>
+  </button>
+  <button class="button" id="5button">
+    <div class="symbols">
+    5
     </div>
-    <div class="button" id="1button">
-      <div class="symbols">
-      1
-      </div>
+  </button>
+  <button class="button" id="6button">
+    <div class="symbols">
+    6
     </div>
-    <div class="button" id="2button">
-      <div class="symbols">
-      2
-      </div>
+  </button>
+  <button class="button operatorButton" id="-button">
+    <div class="operatorSymbols">
+    -
     </div>
-    <div class="button" id="3button">
-      <div class="symbols">
-      3
-      </div>
+  </button>
+  <button class="button" id="1button">
+    <div class="symbols">
+    1
     </div>
-    <div class="button operatorButton" id="plusButton">
-      <div class="operatorSymbols">
-      +
-      </div>
+  </button>
+  <button class="button" id="2button">
+    <div class="symbols">
+    2
     </div>
-    <div class="button" id="0button">
-      <div class="symbols">
-      0
-      </div>
+  </button>
+  <button class="button" id="3button">
+    <div class="symbols">
+    3
     </div>
-    <div class="button" id="decButton">
-      <div class="symbols">
-      .
-      </div>
+  </button>
+  <button class="button operatorButton" id="plusButton">
+    <div class="operatorSymbols">
+    +
     </div>
-    <div class="button operatorButton" id="divButton">
-      <div class="operatorSymbols">
-      ÷
-      </div>
+  </button>
+  <button class="button" id="0button">
+    <div class="symbols">
+    0
     </div>
+  </button>
+  <button class="button" id="decButton">
+    <div class="symbols">
+    .
+    </div>
+  </button>
+  <button class="button operatorButton" id="divButton">
+    <div class="operatorSymbols">
+    ÷
+    </div>
+  </button>
 
-    <div class="button operatorButton" id="equalsButton">
-      <div class="operatorSymbols">
-      =
-      </div>
+  <button class="button operatorButton" id="equalsButton">
+    <div class="operatorSymbols">
+    =
     </div>
+  </button>
   </div>
   </div>
   <div class="footer">
